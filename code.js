@@ -98,7 +98,7 @@ identifying gotchas
   writing pseudocode*/
 
 
-let suit = [D, H, S, C];
+let suit = ['D', 'H', 'S', 'C'];
 let deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let wins = 0;
 let losses = 0;
