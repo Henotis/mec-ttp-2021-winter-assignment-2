@@ -99,7 +99,12 @@ identifying gotchas
 
 
 let suit = ['D', 'H', 'S', 'C'];
-let deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
+// let diamond_suit = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
+// let heart_suit = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
+// let spades_suit = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
+// let clubs_suit = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
+
 let wins = 0;
 let losses = 0;
 // let ties = 0;
