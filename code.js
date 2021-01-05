@@ -21,11 +21,11 @@
 	- reset()
 
 	===== GOTCHAS =====
-	- 
+	- The same card should not be dealt twice.
 
-	===== REDUCE =====
-	- 
-
+	===== REDUCE THE PROBLEM SPACE =====
+	- For now, assume there is no suit.
+	- For now, assume duplicates are allowed.
 */
 
 // let diamond_suit = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
@@ -33,7 +33,8 @@
 // let spades_suit = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
 // let clubs_suit = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
 
-//There should be a random function th
+//There should be a random function that selects
+//a random card  from a random deck  
 
 let deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -55,18 +56,22 @@ function totalSum(arr){
 }
 
 /*
+//
+while(userSum < 22 && aiSum < 22 && endGame = 1){
+  let endGame = 0;
+  function stand(){
+    endGame = 1;
+  }
 
-while(){
   function hit(){
   user_hands.push(deck[Math.floor(Math.random()*deck.length)])
   }
   function aiHit(){
     ai_hands.push(deck[Math.floor(Math.random()*deck.length)])
   }
-
   function ifOver17(aiHand){
     if(aiHand > 17){
-      hit();
+      aiHit();
     }
   }
 }
