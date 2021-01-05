@@ -21,10 +21,9 @@
 	- reset()
 
 	===== GOTCHAS =====
-	- The same card should not be dealt twice.
+	- The same number cannot be dealt more than four times.
 
 	===== REDUCE THE PROBLEM SPACE =====
-	- For now, assume there is no suit.
 	- For now, assume duplicates are allowed.
 */
 
@@ -33,10 +32,14 @@
 // let spades_suit = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
 // let clubs_suit = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
 
-//There should be a random function that selects
-//a random card  from a random deck  
+// There should be a random function that selects a random card from a random deck.
 
-let deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
+let deck = [
+	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
+	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
+	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
+	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10
+];
 
 let wins = 0;
 let losses = 0;
