@@ -87,32 +87,59 @@ identifying gotchas
   writing pseudocode*/
 
 let suit = [D, H, S, C];
-let deck = [1,2,3,4,5,6,7,8,9,10];
+let deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let wins = 0;
 let losses = 0;
 // let ties = 0;
 
-let user_deck =[];
+let user_deck = [];
 let ai_deck = [];
 
 function deal_out_cards(){
-    for(let index = 0; index < deck.length; index ++){
-        if(Math.random() < .5) {
-            // give to the player
-            if (Math.random() < .5){
-                user_deck.push(deck[index]);
+    user_deck = [];
+    ai_deck = [];
+    for(let index = 0; index < deck.length; index++){
+	// todo: make sure that the two player's decks are of equal length
+	if(Math.random() < .5){
+	    // give to the player
+	    if(Math.random() < .5){
+		user_deck.push(deck[index]);
+	    }else{
+		user_deck.unshift(deck[index]);
+	    }
+	}else{
+	    // give to the ai
+	    if(Math.random() < .5){
+		ai_deck.push(deck[index]);
+	    }else{
+		ai_deck.unshift(deck[index]);
+	    }
+	}
 
-            }else{
-                user_deck.unshift(deck[index]);
-            }
-        else{
-            //give to ai
-            if (Math.random() < .5){
-                ai_deck.push(deck[index]);
-            }else{
-                ai_deck.unshift(deck[index]);
-            }
-            }
-        }
     }
+}
+
+function play_one_hand(){
+    return {
+	user_card: user_deck.pop(),
+	ai_card: ai_deck.pop()
+    }
+}
+
+function determine_outcome(hand){
+    if(hand.user_card > hand.ai_card){
+	console.log('you won!');
+	wins++;
+    }else{
+	console.log('sorry, you lost!');
+	losses++;
+    }
+}
+
+
+function start(){
+    deal_out_cards();
+    let hand = play_one_hand();
+    console.log(hand);
+    determine_outcome(hand);
 }
