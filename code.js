@@ -40,6 +40,9 @@ var ties = 0;
 var aiHand = [];
 var userHand = [];
 
+//this variable is used in reduce to add an array together
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
 function hit(hand) {
 	hand.push(deck[Math.floor(Math.random()*deck.length)])
 }
@@ -66,14 +69,17 @@ function start() {
 	hit(aiHand);
 	hit(aiHand);
 
-	console.log(aiHand)
+	//assigns the total in ai's hand to aiTotal
+	aiTotal = aiHand.reduce(reducer)
+	console.log(aiTotal)
 
 	// todo: populate aiHand based on its standardized rules
 
 	hit(userHand);
 	hit(userHand);
-
-	console.log(userHand)
+	//assigns the total in user's hand to userTotal
+	userTotal = userHand.reduce(reducer)
+	console.log(userTotal);
 
 }
 
