@@ -22,7 +22,11 @@
 	- The same number cannot be dealt more than four times.
 
 	===== PROBLEM SPACE =====
-	- For now, assume the same number can be dealt more than four times.
+	- Assume there is no betting involved, only wins, losses, and ties.
+	- Assume there are only 2 players: the user and the dealer AI.
+	- Assume aces always count as 1.
+	- Assume there is no option to split, double down, or buy insurance.
+	- Assume that both the dealer's cards are given face up (ie visible).
 */
 
 // takes a random element from deck and pushes it into han
@@ -51,11 +55,11 @@ function reset() {
 		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
 		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10
 	];
-	
+
 	wins = 0;
 	losses = 0;
 	ties = 0;
-	
+
 	aiHand = [];
 	userHand = [];
 }
@@ -68,18 +72,18 @@ function status() {
 }
 
 //this function should remove the card from deck once it's dealt
-function cardRemove(index){
+function cardRemove(index) {
 	deck.splice(index, 1);
 }
 
 //adds to player hand only!
 function hit() {
-	let index = Math.floor(Math.random()*deck.length);
+	let index = Math.floor(Math.random() * deck.length);
 	userHand.push(deck[index]);
 	cardRemove(index);
 	userTotal = userHand.reduce(reducer)
 	console.log(userTotal);
-	if(userTotal > 21){
+	if (userTotal > 21) {
 		losses += 1;
 		console.log("You bust! Reset the game to play again!")
 		status()
@@ -93,13 +97,13 @@ function stand() {
 	aiTotal = aiHand.reduce(reducer)
 	userTotal = userHand.reduce(reducer)
 
-	if(aiTotal > userTotal){
+	if (aiTotal > userTotal) {
 		console.log("AI wins!, Winning Number: " + aiTotal)
 		losses += 1;
 		status()
 		reset()
 	}
-	else if(aiTotal < userTotal){
+	else if (aiTotal < userTotal) {
 		console.log("Congrats! You won!: " + userTotal)
 		wins += 1
 		status()
@@ -112,8 +116,8 @@ function stand() {
 function start() {
 	reset();
 
-	aiHand.push(deck[Math.floor(Math.random()*deck.length)])
-	aiHand.push(deck[Math.floor(Math.random()*deck.length)])
+	aiHand.push(deck[Math.floor(Math.random() * deck.length)])
+	aiHand.push(deck[Math.floor(Math.random() * deck.length)])
 
 	//assigns the total in ai's hand to aiTotal
 	aiTotal = aiHand.reduce(reducer)
@@ -121,11 +125,11 @@ function start() {
 
 	// todo: populate aiHand based on its standardized rules
 
-	userHand.push(deck[Math.floor(Math.random()*deck.length)])
-	userHand.push(deck[Math.floor(Math.random()*deck.length)])
+	userHand.push(deck[Math.floor(Math.random() * deck.length)])
+	userHand.push(deck[Math.floor(Math.random() * deck.length)])
 	//assigns the total in user's hand to userTotal
 	userTotal = userHand.reduce(reducer)
-	console.log("User current hand: " +userTotal);
+	console.log("User current hand: " + userTotal);
 
 }
 
