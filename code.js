@@ -45,11 +45,22 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 function hit(hand) {
 	hand.push(deck[Math.floor(Math.random()*deck.length)])
+	//After start() users should type hit(userHand) if hitting
 }
 
 // compares total card values and updates wins/losses/ties
-function stand() {
+function stand(aiHand, userHand) {
+	aiTotal = aiHand.reduce(reducer)
+	userTotal = userHand.reduce(reducer)
 
+	if(aiTotal > userTotal){
+		console.log("AI wins!, Winning Number: " + aiTotal)
+		return aiTotal;
+	}
+	if(aiTotal < userTotal){
+		console.log("Congrats! You won!: " + userTotal)
+		return userTotal;
+	}
 }
 
 // displays wins, losses, and ties
