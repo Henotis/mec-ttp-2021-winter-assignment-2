@@ -29,7 +29,6 @@
 	- Assume that both the dealer's cards are given face up (ie visible).
 */
 
-// takes a random element from deck and pushes it into han
 let deck = [
 	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
 	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
