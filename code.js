@@ -40,7 +40,7 @@ var ties = 0;
 var aiHand = [];
 var userHand = [];
 
-//this variable is used in reduce to add an array together
+//this variable is used in .reduce() to add an array together
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 
@@ -68,7 +68,7 @@ function hit() {
 	}
 }
 
-// compares total card values and updates wins/losses/ties
+//user doesn't want to hit anymore and compares their numbers with the AI for the win or loss
 function stand() {
 	aiTotal = aiHand.reduce(reducer)
 	userTotal = userHand.reduce(reducer)
