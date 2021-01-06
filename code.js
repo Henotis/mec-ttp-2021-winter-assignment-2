@@ -26,19 +26,19 @@
 */
 
 // takes a random element from deck and pushes it into han
-var deck = [
+let deck = [
 	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
 	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
 	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
 	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10
 ];
 
-var wins = 0;
-var losses = 0;
-var ties = 0;
+let wins = 0;
+let losses = 0;
+let ties = 0;
 
-var aiHand = [];
-var userHand = [];
+let aiHand = [];
+let userHand = [];
 
 //this variable is used in .reduce() to add an array together
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -141,7 +141,7 @@ function start() {
 
 /*
 while(userSum < 22 && aiSum < 22 && endGame = 1){
-  var endGame = 0;
+  let endGame = 0;
   function stand(){
 	endGame = 1;
   }
@@ -163,15 +163,15 @@ while(userSum < 22 && aiSum < 22 && endGame = 1){
 // function dealCards() {
 // 	userHand = [];
 // 	aiHand = [];
-// 	for (var index = 0; index < 2; index++) {
+// 	for (let index = 0; index < 2; index++) {
 // 		// todo: make sure that the two player's hands are of equal length
 // 		//add 2 cards to user and ai hands
 // 		userHand.push(deck[Math.floor(Math.random() * deck.length)])
 // 		aiHand.push(deck[Math.floor(Math.random() * deck.length)])
 // 	}
-// 	var userSum = calculateTotal(userHand);
+// 	let userSum = calculateTotal(userHand);
 // 	console.log(userSum);
-// 	var aiSum = calculateTotal(aiHand);
+// 	let aiSum = calculateTotal(aiHand);
 // 	console.log(aiSum);
 
 // 	//if aisum > 17 call ifOver17
@@ -219,7 +219,7 @@ function determine_outcome(hand){
 
 function start(){
 	deal_out_cards();
-	var hand = play_one_hand();
+	let hand = play_one_hand();
 	console.log(hand);
 	determine_outcome(hand);
 }
