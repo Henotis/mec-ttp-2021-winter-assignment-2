@@ -44,7 +44,7 @@ let ties = 0;
 let aiHand = [];
 let userHand = [];
 
-//this variable is used in .reduce() to add an array together
+// this variable is used in .reduce() to add an array together
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 // returns the Blackjack game to its initial state
@@ -71,7 +71,7 @@ function status() {
 	console.log("Ties: " + ties)
 }
 
-//this function should remove the card from deck once it's dealt
+// this function should remove the card from deck once it's dealt
 function cardRemove(index) {
 	deck.splice(index, 1);
 }
@@ -92,7 +92,7 @@ function hit() {
 	}
 }
 
-//user doesn't want to hit anymore and compares their numbers with the AI for the win or loss
+// user doesn't want to hit anymore and compares their numbers with the AI for the win or loss
 function stand() {
 	aiTotal = aiHand.reduce(reducer)
 	userTotal = userHand.reduce(reducer)
@@ -146,7 +146,7 @@ function start() {
 	aiHand.push(deck[Math.floor(Math.random() * deck.length)])
 	aiHand.push(deck[Math.floor(Math.random() * deck.length)])
 
-	//assigns the total in ai's hand to aiTotal
+	// assigns the total in ai's hand to aiTotal
 	aiTotal = aiHand.reduce(reducer)
 	console.log("AI current hand: " + aiTotal)
 
