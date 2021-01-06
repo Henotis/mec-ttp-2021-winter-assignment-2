@@ -5,17 +5,17 @@
 	- To practice implementing core javascript principles within the framing of building a blackjack card game engine.
 	
 	===== MAJOR FEATURES =====
-	- User should be able to reset the game.
-	- User should be able to check status.
 	- User should be able to hit.
 	- User should be able to stand.
+	- User should be able to check status.
+	- User should be able to reset the game.
 	- User should be able to start the Blackjack game.
 
 	===== FUNCTION STUBS =====
-	- reset()
-	- status()
 	- hit()
 	- stand()
+	- status()
+	- reset()
 	- start()
 
 	===== GOTCHAS =====
