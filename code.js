@@ -17,7 +17,16 @@
 	- status()
 	- reset()
 	- start()
+	
+	===== GOTCHAS =====
+	- The same number cannot be dealt more than four times.
 
+	===== PROBLEM SPACE =====
+	- Assume there is no betting involved, only wins, losses, and ties.
+	- Assume there are only 2 players: the user and the dealer AI.
+	- Assume aces always count as 1.
+	- Assume there is no option to split, double down, or buy insurance.
+	- Assume that both the dealer's cards are given face up (ie visible).
 */
 
 let deck = [
@@ -33,9 +42,9 @@ let ties = 0;
 
 let aiHand = [];
 let userHand = [];
-let index = 0;
 let aiTotal = 0;
 let userTotal = 0;
+
 
 // this variable is used in .reduce() to add an array together
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -51,7 +60,6 @@ function reset() {
 
 	aiHand = [];
 	userHand = [];
-	index = 0;
 	aiTotal = 0;
 	userTotal = 0
 }
@@ -76,9 +84,10 @@ function cardRemove(index) {
 
 //adds to player hand only!
 function hit() {
+
 	let aceIndex = 0;
 	///////////////////////////
-	index = Math.floor(Math.random()*deck.length);
+	const index = Math.floor(Math.random()*deck.length);
 	console.log("Index removed: " + index);
 	aceIndex = deck[index];
 	console.log(aceIndex);
@@ -89,6 +98,7 @@ function hit() {
 	if(aceIndex == 11){
 		userTotal += ace(userTotal);
 	}
+
 	console.log("Your current Total: " + userTotal);
 	if (userTotal > 21) {
 		losses += 1;
