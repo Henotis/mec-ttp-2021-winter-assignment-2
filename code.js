@@ -25,9 +25,23 @@
 	- For now, assume the same number can be dealt more than four times.
 */
 
-// takes a random element from deck and pushes it into hand
-function hit(hand) {
+// takes a random element from deck and pushes it into han
+var deck = [
+	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
+	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
+	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
+	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10
+];
 
+var wins = 0;
+var losses = 0;
+var ties = 0;
+
+var aiHand = [];
+var userHand = [];
+
+function hit(hand) {
+	hand.push(deck[Math.floor(Math.random()*deck.length)])
 }
 
 // compares total card values and updates wins/losses/ties
@@ -42,19 +56,7 @@ function status() {
 
 // returns the Blackjack game to its initial state
 function reset() {
-	var deck = [
-		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
-		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
-		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
-		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10
-	];
 
-	var wins = 0;
-	var losses = 0;
-	var ties = 0;
-
-	var aiHand = [];
-	var userHand = [];
 }
 
 // starts the game
