@@ -29,6 +29,7 @@
 	- Assume that both the dealer's cards are given face up (ie visible).
 */
 
+// takes a random element from deck and pushes it into han
 let deck = [
 	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
 	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
@@ -42,6 +43,7 @@ let ties = 0;
 
 let aiHand = [];
 let userHand = [];
+let index = 0;
 
 // this variable is used in .reduce() to add an array together
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -57,6 +59,8 @@ function reset() {
 
 	aiHand = [];
 	userHand = [];
+	index = 0;
+	
 }
 
 // displays wins, losses, and ties
@@ -71,15 +75,14 @@ function cardRemove(index) {
 	deck.splice(index, 1);
 }
 
-// adds to player hand only!
+//adds to player hand only!
 function hit() {
-	cutCard = 0;
+	index = 0;
 	///////////////////////////
-	cutCard = Math.floor(Math.random()*deck.length)
-	cardIndex = deck[cutCard]
-	console.log("Index removed: " + cutCard)
-	userHand.push(cardIndex)
-	cardRemove(cutCard)
+	index = Math.floor(Math.random()*deck.length)
+	console.log("Index removed: " + index)
+	userHand.push(deck[index])
+	cardRemove(index)
 	///////////////////////////
 	userTotal = userHand.reduce(reducer)
 	console.log(userTotal);
@@ -111,63 +114,132 @@ function stand() {
 	}
 }
 
+
 // starts the game
 function start() {
 	reset();
-<<<<<<< HEAD
 	
 	//temporarily holds the card that we want to cut from the deck
-	cutCard = 0;
+	index = 0;
 
 	for(let i = 0; i < 2; i++){
 		//assigning a random index from deck size to cutCard
-		cutCard = Math.floor(Math.random()*deck.length)
-		//assigning value of the index within deck to card Index
-		cardIndex = deck[cutCard]
+		index = Math.floor(Math.random()*deck.length)
 		//tracking the index of the card removed
-		console.log("Index removed: " + cutCard)
+		console.log("Index removed: " + index)
 		//pushing the value if the cardIndex into hand
-		aiHand.push(cardIndex)
+		aiHand.push(deck[index])
 		//finally cutting out the card!
-		cardRemove(cutCard)
+		cardRemove(index)
 	}
 	aiTotal = aiHand.reduce(reducer)
 	console.log("AI current hand: " + aiTotal)
 
 	for(let i = 0; i < 2; i++){
-		cutCard = Math.floor(Math.random()*deck.length)
-		cardIndex = deck[cutCard]
-		console.log("Index removed: " + cutCard)
-		userHand.push(cardIndex)
-		cardRemove(cutCard)
+		index = Math.floor(Math.random()*deck.length)
+		console.log("Index removed: " + index)
+		userHand.push(deck[index])
+		cardRemove(index)
 	}
 	userTotal = userHand.reduce(reducer)
 	console.log("User current hand: " + userTotal)
 }
 
-=======
->>>>>>> 04e3c798038f38a8de4147030e17ca6ceb05e495
 
-	// holds the index of the card that we want to deal from the deck
-	let index = 0;
+// ===== BRAINSTORM SECTION =====
 
-	for (let i = 0; i < 2; i++) {
-		// generates random index
-		index = Math.floor(Math.random() * deck.length)
-		// push card at index to aiHand
-		aiHand.push(deck[index])
-		// remove dealt card from deck
-		cardRemove(index)
+// // returns the total card value of hand
+// function calculateTotal(hand) {
+// 	let sum = 0;
+// 	for (let index = 0; index < hand.length; index++) {
+// 		sum += hand[index];
+// 	}
+// 	return sum;
+// }
+
+/*
+while(userSum < 22 && aiSum < 22 && endGame = 1){
+  let endGame = 0;
+  function stand(){
+	endGame = 1;
+  }
+
+  function hit(){
+  userHand.push(deck[Math.floor(Math.random()*deck.length)])
+  }
+  function aiHit(){
+	aiHand.push(deck[Math.floor(Math.random()*deck.length)])
+  }
+  function ifOver17(aiHand){
+	if(aiHand > 17){
+	  aiHit();
 	}
-	console.log("AI current hand: " + aiHand.reduce(reducer))
-
-	for (let i = 0; i < 2; i++) {
-		// generates random index
-		index = Math.floor(Math.random() * deck.length)
-		// push card at index to userHand
-		userHand.push(deck[index])
-		// remove dealt card from deck
-		cardRemove(index)
-	}
-	console.log("User current hand: " + userHand.reduce(reducer))
+  }
 }
+*/
+
+// function dealCards() {
+// 	userHand = [];
+// 	aiHand = [];
+// 	for (let index = 0; index < 2; index++) {
+// 		// todo: make sure that the two player's hands are of equal length
+// 		//add 2 cards to user and ai hands
+// 		userHand.push(deck[Math.floor(Math.random() * deck.length)])
+// 		aiHand.push(deck[Math.floor(Math.random() * deck.length)])
+// 	}
+// 	let userSum = calculateTotal(userHand);
+// 	console.log(userSum);
+// 	let aiSum = calculateTotal(aiHand);
+// 	console.log(aiSum);
+
+// 	//if aisum > 17 call ifOver17
+// }
+//Can optimize code with class
+//Find out how to make a class with javascript
+
+/*
+	if(Math.random() < .5){
+		// give to the player
+		if(Math.random() < .5){
+		userHand.push(deck[index]);
+		}else{
+		userHand.unshift(deck[index]);
+		}
+	}else{
+		// give to the ai
+		if(Math.random() < .5){
+		aiHand.push(deck[index]);
+		}else{
+		aiHand.unshift(deck[index]);
+		}
+	}
+
+	}
+}
+
+function play_one_hand(){
+	return {
+	user_card: userHand.pop(),
+	ai_card: aiHand.pop()
+	}
+}
+
+function determine_outcome(hand){
+	if(hand.user_card > hand.ai_card){
+	console.log('you won!');
+	wins++;
+	}else{
+	console.log('sorry, you lost!');
+	losses++;
+	}
+}
+
+
+function start(){
+	deal_out_cards();
+	let hand = play_one_hand();
+	console.log(hand);
+	determine_outcome(hand);
+}
+
+*/
