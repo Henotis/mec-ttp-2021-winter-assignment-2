@@ -78,7 +78,7 @@ function hit() {
 	console.log("Your current Total: " + userTotal);
 	if (userTotal > 21) {
 		losses += 1;
-		console.log("You bust! Reset the game to play again!")
+		console.log("You bust! Game has reset! start() to play again!")
 		status()
 		reset()
 
@@ -91,14 +91,20 @@ function stand() {
 	userTotal = userHand.reduce(reducer)
 
 	if (aiTotal > userTotal) {
-		console.log("AI wins!, Winning Number: " + aiTotal)
+		console.log("AI wins! Game has reset! start() to play again! Winning Number: " + aiTotal)
 		losses += 1;
 		status()
 		reset()
 	}
 	else if (aiTotal < userTotal) {
-		console.log("Congrats! You won!: " + userTotal)
+		console.log("Congrats! You won!: " + userTotal + "Game has reset! start() to play again!")
 		wins += 1
+		status()
+		reset()
+	}
+	else if(aiTotal == userTotal){
+		console.log("It's a tie! Game has reset! start() to play again!")
+		ties += 1;
 		status()
 		reset()
 	}
