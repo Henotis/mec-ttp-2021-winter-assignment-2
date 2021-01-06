@@ -42,7 +42,6 @@ let ties = 0;
 
 let aiHand = [];
 let userHand = [];
-let index = 0;
 
 // this variable is used in .reduce() to add an array together
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -58,8 +57,6 @@ function reset() {
 
 	aiHand = [];
 	userHand = [];
-	index = 0;
-	
 }
 
 // displays wins, losses, and ties
@@ -76,13 +73,11 @@ function cardRemove(index) {
 
 //adds to player hand only!
 function hit() {
-	index = 0;
-	///////////////////////////
-	index = Math.floor(Math.random()*deck.length)
+	const index = Math.floor(Math.random()*deck.length)
 	console.log("Index removed: " + index)
 	userHand.push(deck[index])
 	cardRemove(index)
-	///////////////////////////
+	
 	userTotal = userHand.reduce(reducer)
 	console.log("Your current Total: " + userTotal);
 	if (userTotal > 21) {
