@@ -56,10 +56,6 @@ function reset() {
 		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10
 	];
 
-	wins = 0;
-	losses = 0;
-	ties = 0;
-
 	aiHand = [];
 	userHand = [];
 }
@@ -78,9 +74,14 @@ function cardRemove(index) {
 
 //adds to player hand only!
 function hit() {
-	let index = Math.floor(Math.random() * deck.length);
-	userHand.push(deck[index]);
-	cardRemove(index);
+	cutCard = 0;
+	///////////////////////////
+	cutCard = Math.floor(Math.random()*deck.length)
+	cardIndex = deck[cutCard]
+	console.log("Index removed: " + cutCard)
+	userHand.push(cardIndex)
+	cardRemove(cutCard)
+	///////////////////////////
 	userTotal = userHand.reduce(reducer)
 	console.log(userTotal);
 	if (userTotal > 21) {
@@ -120,24 +121,26 @@ function start() {
 	cutCard = 0;
 
 	for(let i = 0; i < 2; i++){
-		//need to figure out how to assign this the index of the number produced
-		cutCard = deck[Math.floor(Math.random()*deck.length)]
-		//just to track what cutCard is
-		console.log(cutCard)
-		//this needs to push only the value of the index selected
-		aiHand.push(cutCard)
-		//this needs input the index of the value given to aiHand.push(cutCard)
-		//cardRemove(cutCard)
+		//assigning a random index from deck size to cutCard
+		cutCard = Math.floor(Math.random()*deck.length)
+		//assigning value of the index within deck to card Index
+		cardIndex = deck[cutCard]
+		//tracking the index of the card removed
+		console.log("Index removed: " + cutCard)
+		//pushing the value if the cardIndex into hand
+		aiHand.push(cardIndex)
+		//finally cutting out the card!
+		cardRemove(cutCard)
 	}
 	aiTotal = aiHand.reduce(reducer)
 	console.log("AI current hand: " + aiTotal)
 
-	//this has the same issues as the for loop above ^
 	for(let i = 0; i < 2; i++){
-		cutCard = deck[Math.floor(Math.random()*deck.length)]
-		console.log(cutCard)
-		userHand.push(cutCard)
-		//cardRemove(cutCard)
+		cutCard = Math.floor(Math.random()*deck.length)
+		cardIndex = deck[cutCard]
+		console.log("Index removed: " + cutCard)
+		userHand.push(cardIndex)
+		cardRemove(cutCard)
 	}
 	userTotal = userHand.reduce(reducer)
 	console.log("User current hand: " + userTotal)
