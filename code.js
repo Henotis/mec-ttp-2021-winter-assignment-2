@@ -47,6 +47,9 @@ function hit() {
 	userHand.push(deck[Math.floor(Math.random()*deck.length)])
 	userTotal = userHand.reduce(reducer)
 	console.log(userTotal);
+	if(userTotal > 21){
+		console.log("You bust! Reset the game to play again!")
+	}
 }
 
 // compares total card values and updates wins/losses/ties
