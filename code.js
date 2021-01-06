@@ -117,7 +117,6 @@ function start() {
 	
 	//temporarily holds the card that we want to cut from the deck
 	index = 0;
-
 	for(let i = 0; i < 2; i++){
 		//assigning a random index from deck size to cutCard
 		index = Math.floor(Math.random()*deck.length)
@@ -128,7 +127,17 @@ function start() {
 		//finally cutting out the card!
 		cardRemove(index)
 	}
+
 	aiTotal = aiHand.reduce(reducer)
+	
+	if(aiTotal < 17){
+		index = Math.floor(Math.random()*deck.length)
+		console.log("Index removed: " + index)
+		aiHand.push(deck[index])
+		cardRemove(index)
+		aiTotal = aiHand.reduce(reducer)
+	}
+	
 	console.log("AI current hand: " + aiTotal)
 
 	for(let i = 0; i < 2; i++){
