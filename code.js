@@ -52,8 +52,8 @@ function status() {
 }
 
 //this function should remove the card from deck once it's dealt
-function cardRemove(){
-
+function cardRemove(index){
+	deck.splice(index, 1);
 }
 
 //adds to player hand only!
