@@ -43,12 +43,22 @@ var userHand = [];
 //this variable is used in reduce to add an array together
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
+// displays wins, losses, and ties
+function status() {
+	console.log("Wins: " + wins)
+	console.log("Losses: " + losses)
+	console.log("Ties: " + ties)
+}
+
+//adds to player hand only!
 function hit() {
 	userHand.push(deck[Math.floor(Math.random()*deck.length)])
 	userTotal = userHand.reduce(reducer)
 	console.log(userTotal);
 	if(userTotal > 21){
+		losses += 1;
 		console.log("You bust! Reset the game to play again!")
+		status()
 	}
 }
 
@@ -59,18 +69,18 @@ function stand() {
 
 	if(aiTotal > userTotal){
 		console.log("AI wins!, Winning Number: " + aiTotal)
+		losses += 1;
+		status()
 		return aiTotal;
 	}
 	if(aiTotal < userTotal){
 		console.log("Congrats! You won!: " + userTotal)
+		wins += 1
+		status()
 		return userTotal;
 	}
 }
 
-// displays wins, losses, and ties
-function status() {
-
-}
 
 // returns the Blackjack game to its initial state
 function reset() {
