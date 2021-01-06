@@ -10,9 +10,6 @@
 	- User should be able to check status.
 	- User should be able to reset the game.
 	- User should be able to start the Blackjack game.
-	
-	===== GOTCHAS =====
-	- The same number cannot be dealt more than four times.
 
 	===== FUNCTION STUBS =====
 	- hit()
@@ -20,7 +17,16 @@
 	- status()
 	- reset()
 	- start()
+	
+	===== GOTCHAS =====
+	- The same number cannot be dealt more than four times.
 
+	===== PROBLEM SPACE =====
+	- Assume there is no betting involved, only wins, losses, and ties.
+	- Assume there are only 2 players: the user and the dealer AI.
+	- Assume aces always count as 1.
+	- Assume there is no option to split, double down, or buy insurance.
+	- Assume that both the dealer's cards are given face up (ie visible).
 */
 
 let deck = [
