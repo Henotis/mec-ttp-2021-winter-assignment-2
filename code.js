@@ -1,5 +1,3 @@
-"use strict";
-
 /*
 	MEC TTP 2021 Winter Assignment 2: Blackjack Game Engine
 	
@@ -7,17 +5,17 @@
 	- To practice implementing core javascript principles within the framing of building a blackjack card game engine.
 	
 	===== MAJOR FEATURES =====
+	- User should be able to reset the game.
 	- User should be able to hit.
 	- User should be able to stand.
 	- User should be able to check status.
-	- User should be able to reset the game.
 	- User should be able to start the Blackjack game.
 
 	===== FUNCTION STUBS =====
+	- reset()
 	- hit()
 	- stand()
 	- status()
-	- reset()
 	- start()
 
 	===== GOTCHAS =====
@@ -27,22 +25,7 @@
 	- For now, assume the same number can be dealt more than four times.
 */
 
-// takes a random element from deck and pushes it into userHand
-function hit() {
-
-}
-
-// compares total card values and updates wins/losses/ties
-function stand() {
-
-}
-
-// prints status of all hands
-function status() {
-
-}
-
-// returns the game to the initial state
+// returns the Blackjack game to its initial state
 function reset() {
 	var deck = [
 		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
@@ -59,9 +42,32 @@ function reset() {
 	var userHand = [];
 }
 
-// starts the Blackjack game
+// takes a random element from deck and pushes it into hand
+function hit(hand) {
+
+}
+
+// compares total card values and updates wins/losses/ties
+function stand() {
+
+}
+
+// displays wins, losses, and ties
+function status() {
+
+}
+
+// starts the game
 function start() {
 	reset();
+
+	hit(aiHand);
+	hit(aiHand);
+
+	// todo: populate aiHand based on its standardized rules
+
+	hit(userHand);
+	hit(userHand);
 }
 
 
