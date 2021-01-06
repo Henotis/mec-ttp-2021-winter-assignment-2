@@ -127,7 +127,7 @@ function start() {
 		//this needs to push only the value of the index selected
 		aiHand.push(cutCard)
 		//this needs input the index of the value given to aiHand.push(cutCard)
-		cardRemove(cutCard)
+		//cardRemove(cutCard)
 	}
 	aiTotal = aiHand.reduce(reducer)
 	console.log("AI current hand: " + aiTotal)
@@ -137,7 +137,7 @@ function start() {
 		cutCard = deck[Math.floor(Math.random()*deck.length)]
 		console.log(cutCard)
 		userHand.push(cutCard)
-		cardRemove(cutCard)
+		//cardRemove(cutCard)
 	}
 	userTotal = userHand.reduce(reducer)
 	console.log("User current hand: " + userTotal)
