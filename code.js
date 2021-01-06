@@ -43,11 +43,17 @@ var userHand = [];
 //this variable is used in reduce to add an array together
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
+
 // displays wins, losses, and ties
 function status() {
 	console.log("Wins: " + wins)
 	console.log("Losses: " + losses)
 	console.log("Ties: " + ties)
+}
+
+//this function should remove the card from deck once it's dealt
+function cardRemove(){
+
 }
 
 //adds to player hand only!
@@ -96,7 +102,7 @@ function start() {
 
 	//assigns the total in ai's hand to aiTotal
 	aiTotal = aiHand.reduce(reducer)
-	console.log(aiTotal)
+	console.log("AI current hand: " + aiTotal)
 
 	// todo: populate aiHand based on its standardized rules
 
@@ -104,7 +110,7 @@ function start() {
 	userHand.push(deck[Math.floor(Math.random()*deck.length)])
 	//assigns the total in user's hand to userTotal
 	userTotal = userHand.reduce(reducer)
-	console.log(userTotal);
+	console.log("User current hand: " +userTotal);
 
 }
 
