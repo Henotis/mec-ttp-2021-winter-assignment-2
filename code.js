@@ -43,13 +43,14 @@ var userHand = [];
 //this variable is used in reduce to add an array together
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-function hit(hand) {
-	hand.push(deck[Math.floor(Math.random()*deck.length)])
-	//After start() users should type hit(userHand) if hitting
+function hit() {
+	userHand.push(deck[Math.floor(Math.random()*deck.length)])
+	userTotal = userHand.reduce(reducer)
+	console.log(userTotal);
 }
 
 // compares total card values and updates wins/losses/ties
-function stand(aiHand, userHand) {
+function stand() {
 	aiTotal = aiHand.reduce(reducer)
 	userTotal = userHand.reduce(reducer)
 
@@ -77,8 +78,8 @@ function reset() {
 function start() {
 	reset();
 
-	hit(aiHand);
-	hit(aiHand);
+	aiHand.push(deck[Math.floor(Math.random()*deck.length)])
+	aiHand.push(deck[Math.floor(Math.random()*deck.length)])
 
 	//assigns the total in ai's hand to aiTotal
 	aiTotal = aiHand.reduce(reducer)
@@ -86,8 +87,8 @@ function start() {
 
 	// todo: populate aiHand based on its standardized rules
 
-	hit(userHand);
-	hit(userHand);
+	userHand.push(deck[Math.floor(Math.random()*deck.length)])
+	userHand.push(deck[Math.floor(Math.random()*deck.length)])
 	//assigns the total in user's hand to userTotal
 	userTotal = userHand.reduce(reducer)
 	console.log(userTotal);
