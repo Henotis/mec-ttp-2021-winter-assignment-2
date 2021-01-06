@@ -112,21 +112,31 @@ function stand() {
 function start() {
 	reset();
 
-	aiHand.push(deck[Math.floor(Math.random()*deck.length)])
-	aiHand.push(deck[Math.floor(Math.random()*deck.length)])
+	//temporarily holds the card that we want to cut from the deck
+	cutCard = 0;
 
-	//assigns the total in ai's hand to aiTotal
+	for(let i = 0; i < 2; i++){
+		//need to figure out how to assign this the index of the number produced
+		cutCard = deck[Math.floor(Math.random()*deck.length)]
+		//just to track what cutCard is
+		console.log(cutCard)
+		//this needs to push only the value of the index selected
+		aiHand.push(cutCard)
+		//this needs input the index of the value given to aiHand.push(cutCard)
+		cardRemove(cutCard)
+	}
 	aiTotal = aiHand.reduce(reducer)
 	console.log("AI current hand: " + aiTotal)
 
-	// todo: populate aiHand based on its standardized rules
-
-	userHand.push(deck[Math.floor(Math.random()*deck.length)])
-	userHand.push(deck[Math.floor(Math.random()*deck.length)])
-	//assigns the total in user's hand to userTotal
+	//this has the same issues as the for loop above ^
+	for(let i = 0; i < 2; i++){
+		cutCard = deck[Math.floor(Math.random()*deck.length)]
+		console.log(cutCard)
+		userHand.push(cutCard)
+		cardRemove(cutCard)
+	}
 	userTotal = userHand.reduce(reducer)
-	console.log("User current hand: " +userTotal);
-
+	console.log("User current hand: " + userTotal)
 }
 
 
