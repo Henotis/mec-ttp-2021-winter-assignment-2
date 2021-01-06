@@ -115,8 +115,7 @@ function stand() {
 // starts the game
 function start() {
 	reset();
-
-<<<<<<< HEAD
+	
 	//temporarily holds the card that we want to cut from the deck
 	cutCard = 0;
 
@@ -142,23 +141,6 @@ function start() {
 	}
 	userTotal = userHand.reduce(reducer)
 	console.log("User current hand: " + userTotal)
-=======
-	aiHand.push(deck[Math.floor(Math.random() * deck.length)])
-	aiHand.push(deck[Math.floor(Math.random() * deck.length)])
-
-	// assigns the total in ai's hand to aiTotal
-	aiTotal = aiHand.reduce(reducer)
-	console.log("AI current hand: " + aiTotal)
-
-	// todo: populate aiHand based on its standardized rules
-
-	userHand.push(deck[Math.floor(Math.random() * deck.length)])
-	userHand.push(deck[Math.floor(Math.random() * deck.length)])
-	//assigns the total in user's hand to userTotal
-	userTotal = userHand.reduce(reducer)
-	console.log("User current hand: " + userTotal);
-
->>>>>>> d122e92452bce09d0ed5c6464cf3c9491568901f
 }
 
 
