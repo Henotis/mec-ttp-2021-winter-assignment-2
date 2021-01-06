@@ -66,10 +66,15 @@ function start() {
 	hit(aiHand);
 	hit(aiHand);
 
+	console.log(aiHand)
+
 	// todo: populate aiHand based on its standardized rules
 
 	hit(userHand);
 	hit(userHand);
+
+	console.log(userHand)
+
 }
 
 
