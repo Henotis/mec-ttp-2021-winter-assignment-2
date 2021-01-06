@@ -76,7 +76,7 @@ function cardRemove(index) {
 	deck.splice(index, 1);
 }
 
-//adds to player hand only!
+// adds to player hand only!
 function hit() {
 	let index = Math.floor(Math.random() * deck.length);
 	userHand.push(deck[index]);
@@ -114,30 +114,27 @@ function stand() {
 // starts the game
 function start() {
 	reset();
-	
-	//temporarily holds the card that we want to cut from the deck
-	cutCard = 0;
 
-	for(let i = 0; i < 2; i++){
-		//need to figure out how to assign this the index of the number produced
-		cutCard = deck[Math.floor(Math.random()*deck.length)]
-		//just to track what cutCard is
-		console.log(cutCard)
-		//this needs to push only the value of the index selected
-		aiHand.push(cutCard)
-		//this needs input the index of the value given to aiHand.push(cutCard)
-		//cardRemove(cutCard)
-	}
-	aiTotal = aiHand.reduce(reducer)
-	console.log("AI current hand: " + aiTotal)
+	// temporarily holds the card that we want to cut from the deck
+	let index = 0;
 
-	//this has the same issues as the for loop above ^
-	for(let i = 0; i < 2; i++){
-		cutCard = deck[Math.floor(Math.random()*deck.length)]
-		console.log(cutCard)
-		userHand.push(cutCard)
-		//cardRemove(cutCard)
+	for (let i = 0; i < 2; i++) {
+		// generates random index
+		index = Math.floor(Math.random() * deck.length)
+		// push card at index to aiHand
+		aiHand.push(deck[index])
+		// remove dealt card from deck
+		cardRemove(index)
 	}
-	userTotal = userHand.reduce(reducer)
-	console.log("User current hand: " + userTotal)
+	console.log("AI current hand: " + aiHand.reduce(reducer))
+
+	for (let i = 0; i < 2; i++) {
+		// generates random index
+		index = Math.floor(Math.random() * deck.length)
+		// push card at index to userHand
+		userHand.push(deck[index])
+		// remove dealt card from deck
+		cardRemove(index)
+	}
+	console.log("User current hand: " + userHand.reduce(reducer))
 }
