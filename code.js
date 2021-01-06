@@ -43,10 +43,10 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 // returns the Blackjack game to its initial state
 function reset() {
 	deck = [
-		11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
-		11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
-		11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
-		11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10
+		11,
+		11,
+		11,
+		11
 	];
 
 	aiHand = [];
@@ -166,10 +166,13 @@ function start() {
 	for(let i = 0; i < 2; i++){
 		index = Math.floor(Math.random()*deck.length);
 		console.log("Index removed: " + index);
-		userHand.push(deck[index]);
+		aceIndex = deck[index];
+		userHand.push(aceIndex);
 		cardRemove(index);	
 	}
 	userTotal = userHand.reduce(reducer);
-
+	if(aceIndex == 11){
+		userTotal += ace(userTotal);
+	}
 	console.log("User current hand: " + userTotal);
 }
