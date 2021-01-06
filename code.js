@@ -97,7 +97,7 @@ function stand() {
 		reset()
 	}
 	else if (aiTotal < userTotal) {
-		console.log("Congrats! You won!: " + userTotal + "Game has reset! start() to play again!")
+		console.log("You won! Game has reset! start() to play again! Your total is: " + userTotal)
 		wins += 1
 		status()
 		reset()
