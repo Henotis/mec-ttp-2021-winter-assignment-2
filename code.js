@@ -115,7 +115,7 @@ function stand() {
 function start() {
 	reset();
 
-	// temporarily holds the card that we want to cut from the deck
+	// holds the index of the card that we want to deal from the deck
 	let index = 0;
 
 	for (let i = 0; i < 2; i++) {
