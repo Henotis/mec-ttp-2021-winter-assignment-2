@@ -136,8 +136,13 @@ function start() {
 		aiHand.push(deck[index])
 		cardRemove(index)
 		aiTotal = aiHand.reduce(reducer)
+		if(aiTotal > 21){
+			console.log("AI has busted! Game has been reset!")
+			reset()
+			console.log("AI's total was: ")
+			return aiTotal
+		}
 	}
-	
 	console.log("AI current hand: " + aiTotal)
 
 	for(let i = 0; i < 2; i++){
