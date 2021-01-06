@@ -5,17 +5,17 @@
 	- To practice implementing core javascript principles within the framing of building a blackjack card game engine.
 	
 	===== MAJOR FEATURES =====
-	- User should be able to reset the game.
 	- User should be able to hit.
 	- User should be able to stand.
 	- User should be able to check status.
+	- User should be able to reset the game.
 	- User should be able to start the Blackjack game.
 
 	===== FUNCTION STUBS =====
-	- reset()
 	- hit()
 	- stand()
 	- status()
+	- reset()
 	- start()
 
 	===== GOTCHAS =====
@@ -24,6 +24,21 @@
 	===== PROBLEM SPACE =====
 	- For now, assume the same number can be dealt more than four times.
 */
+
+// takes a random element from deck and pushes it into hand
+function hit(hand) {
+
+}
+
+// compares total card values and updates wins/losses/ties
+function stand() {
+
+}
+
+// displays wins, losses, and ties
+function status() {
+
+}
 
 // returns the Blackjack game to its initial state
 function reset() {
@@ -40,21 +55,6 @@ function reset() {
 
 	var aiHand = [];
 	var userHand = [];
-}
-
-// takes a random element from deck and pushes it into hand
-function hit(hand) {
-
-}
-
-// compares total card values and updates wins/losses/ties
-function stand() {
-
-}
-
-// displays wins, losses, and ties
-function status() {
-
 }
 
 // starts the game
