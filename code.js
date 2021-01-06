@@ -45,6 +45,7 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 function hit(hand) {
 	hand.push(deck[Math.floor(Math.random()*deck.length)])
+	//After start() users should type hit(userHand) if hitting
 }
 
 // compares total card values and updates wins/losses/ties
