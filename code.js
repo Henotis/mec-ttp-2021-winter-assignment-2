@@ -10,6 +10,9 @@
 	- User should be able to check status.
 	- User should be able to reset the game.
 	- User should be able to start the Blackjack game.
+	
+	===== GOTCHAS =====
+	- The same number cannot be dealt more than four times.
 
 	===== FUNCTION STUBS =====
 	- hit()
