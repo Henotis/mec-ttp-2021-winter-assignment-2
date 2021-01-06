@@ -74,7 +74,9 @@ function cardRemove(index){
 
 //adds to player hand only!
 function hit() {
-	userHand.push(deck[Math.floor(Math.random()*deck.length)])
+	let index = Math.floor(Math.random()*deck.length);
+	userHand.push(deck[index]);
+	cardRemove(index);
 	userTotal = userHand.reduce(reducer)
 	console.log(userTotal);
 	if(userTotal > 21){
